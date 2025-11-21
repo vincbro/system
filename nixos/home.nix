@@ -27,11 +27,6 @@
     # NIX
     nil
     nixfmt-rfc-style
-    # RUST
-    rustc
-    cargo
-    rustfmt
-    rust-analyzer
     # MARKDOWN
     markdown-oxide
     # DEV
