@@ -38,6 +38,7 @@
     #FONTS
     nerd-fonts.fira-mono
     nerd-fonts.fira-code
+    jetbrains-mono
     # MISC
     rofi
     rose-pine-hyprcursor
