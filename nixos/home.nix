@@ -21,15 +21,15 @@
   };
 
   home.packages = with pkgs; [
-    # HELIX
+    #HELIX
     helix
     wl-clipboard
-    # NIX
+    #NIX
     nil
     nixfmt-rfc-style
-    # MARKDOWN
+    #MARKDOWN
     markdown-oxide
-    # DEV
+    #DEV
     pkg-config
     openssl
     gcc
@@ -39,13 +39,15 @@
     nerd-fonts.fira-mono
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
-    # MISC
+    #MISC
     rofi
     rose-pine-hyprcursor
     hyprpaper
     fastfetch
     libsecret
+    btop
     killall
+    zip
   ];
 
   fonts = {
