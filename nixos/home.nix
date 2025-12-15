@@ -20,10 +20,18 @@
     enableZshIntegration = true;
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   home.packages = with pkgs; [
     #HELIX
     helix
     wl-clipboard
+    #ZED
+    zed-editor
     #NIX
     nil
     nixfmt-rfc-style
@@ -34,7 +42,6 @@
     openssl
     gcc
     gh
-    zoxide
     #FONTS
     nerd-fonts.fira-mono
     nerd-fonts.fira-code
@@ -42,6 +49,7 @@
     nerd-fonts.monaspace
     #MISC
     rofi
+    rofi-network-manager
     rose-pine-hyprcursor
     hyprpaper
     fastfetch
@@ -53,6 +61,8 @@
     gnome-bluetooth
     pavucontrol
     rclone
+    hyprshot
+    bruno
   ];
 
   fonts = {

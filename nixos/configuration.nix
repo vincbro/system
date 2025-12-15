@@ -88,6 +88,7 @@
   # shell
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     # ohMyZsh = {
@@ -95,9 +96,8 @@
     #   theme= "fishy";
     #   plugins = [ "git" ];
     # };
-
     shellAliases = {
-      sysswitch = "sudo nixos-rebuild switch --flake ~/system/#orion";
+      update = "sudo nixos-rebuild switch --flake ~/system/#orion";
     };
   };
 
