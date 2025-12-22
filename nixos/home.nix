@@ -1,6 +1,12 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
+
   home.username = "vince";
   home.homeDirectory = "/home/vince";
 
@@ -14,6 +20,13 @@
       credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
     };
   };
+
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
+
+  programs.zen-browser.enable = true;
+
   programs.waybar.enable = true;
   programs.zoxide = {
     enable = true;
@@ -63,6 +76,7 @@
     rclone
     hyprshot
     bruno
+    gemini-cli
   ];
 
   fonts = {
