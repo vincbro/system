@@ -63,6 +63,7 @@
     #MISC
     rofi
     rofi-network-manager
+    rofi-bluetooth
     rose-pine-hyprcursor
     hyprpaper
     fastfetch
@@ -77,6 +78,7 @@
     hyprshot
     bruno
     gemini-cli
+    zellij
   ];
 
   fonts = {
