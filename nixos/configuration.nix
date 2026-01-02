@@ -178,6 +178,7 @@
 
   environment.systemPackages = [
     pkgs.ghostty
+    pkgs.alacritty
     pkgs.google-chrome
     pkgs.home-manager
     pkgs.pcmanfm
