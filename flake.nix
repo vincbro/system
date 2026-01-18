@@ -35,7 +35,7 @@
     in
     {
       nixosConfigurations = {
-        orion = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs system; };
 
           modules = [

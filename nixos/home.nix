@@ -6,9 +6,16 @@
 }:
 
 {
-
   home.username = "vince";
   home.homeDirectory = "/home/vince";
+
+  home.pointerCursor = {
+    package = pkgs.rose-pine-cursor;
+    name = "BreezeX-RosePine-Linux";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
 
   programs.git = {
     enable = true;
@@ -18,6 +25,25 @@
     };
     extraConfig = {
       credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+    };
+  };
+
+  # GTK
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Kanagawa-BL";
+      package = pkgs.kanagawa-gtk-theme;
+    };
+    iconTheme = {
+      name = "Kanagawa";
+      package = pkgs.kanagawa-icon-theme;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 
@@ -60,25 +86,36 @@
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     nerd-fonts.monaspace
-    #MISC
+    #ROFI
     rofi
     rofi-network-manager
     rofi-bluetooth
-    rose-pine-hyprcursor
-    hyprpaper
-    fastfetch
-    libsecret
-    btop
+    #GNOME
+    gnome-bluetooth
+    gnome-calculator
+    gnome-tweaks
+    #TOOLS
     killall
     zip
     unzip
-    gnome-bluetooth
     pavucontrol
     rclone
+    btop
+    libsecret
+    #HYPR
+    hyprpaper
     hyprshot
+    rose-pine-hyprcursor
+    #VM
+    quickemu
+    quickgui
+    #MISC
+    fastfetch
     bruno
     gemini-cli
     zellij
+    wget
+    openhue-cli
   ];
 
   fonts = {
