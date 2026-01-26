@@ -19,10 +19,14 @@
 
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "Vincent Brodin";
-      email = "vincent.brodin21@gmail.com";
-      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+    settings = {
+      user = {
+        name = "Vincent Brodin";
+        email = "vincent.brodin21@gmail.com";
+      };
+      credential = {
+        helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+      };
     };
   };
 
