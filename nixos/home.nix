@@ -22,10 +22,15 @@
     settings.user = {
       name = "Vincent Brodin";
       email = "vincent.brodin21@gmail.com";
-    };
-    extraConfig = {
       credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
     };
+  };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/vince/system";
   };
 
   # GTK
@@ -102,20 +107,20 @@
     rclone
     btop
     libsecret
+    wrk
     #HYPR
     hyprpaper
     hyprshot
     rose-pine-hyprcursor
+    ironbar
     #VM
     quickemu
     quickgui
     #MISC
     fastfetch
     bruno
-    gemini-cli
     zellij
     wget
-    openhue-cli
   ];
 
   fonts = {

@@ -76,7 +76,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.hyprland}/bin/hyprland";
+        command = "${pkgs.hyprland}/bin/start-hyprland";
         user = "vince";
       };
       default_session = initial_session;
@@ -94,10 +94,9 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      update = "sudo nixos-rebuild switch --flake ~/system/#nixos";
+      update = "nh os switch ~/system -H nixos";
     };
   };
-
 
   # Sound server
   security.rtkit.enable = true;
@@ -112,6 +111,10 @@
   services.xserver.xkb = {
     layout = "se";
     variant = "";
+  };
+
+  services.upower = {
+    enable = true;
   };
 
   console.keyMap = "sv-latin1";
@@ -134,11 +137,10 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = [
-    pkgs.ghostty
     pkgs.alacritty
     pkgs.google-chrome
     pkgs.home-manager
-    pkgs.xfce.thunar
+    pkgs.thunar
     pkgs.mcontrolcenter
   ];
 
