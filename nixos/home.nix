@@ -90,6 +90,7 @@
     openssl
     gcc
     gh
+    felix-fm
     #FONTS
     nerd-fonts.fira-mono
     nerd-fonts.fira-code
