@@ -74,10 +74,18 @@
     nix-direnv.enable = true;
   };
 
+  programs.neovim = {
+    enable = true;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    viAlias = true;
+    vimAlias = true;
+  };
+
   home.packages = with pkgs; [
     #HELIX
     helix
     wl-clipboard
+    opencode
     #ZED
     zed-editor
     #NIX
@@ -113,6 +121,7 @@
     btop
     libsecret
     wrk
+    jq
     #HYPR
     hyprpaper
     hyprshot
