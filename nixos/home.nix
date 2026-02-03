@@ -9,6 +9,11 @@
   home.username = "vince";
   home.homeDirectory = "/home/vince";
 
+  imports = [
+    inputs.noctalia.homeModules.default
+    inputs.zen-browser.homeModules.beta
+  ];
+
   home.pointerCursor = {
     package = pkgs.rose-pine-cursor;
     name = "BreezeX-RosePine-Linux";
@@ -37,16 +42,47 @@
     flake = "/home/vince/system";
   };
 
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    shell = "${pkgs.zsh}/bin/zsh";
+    prefix = "C-Space";
+    baseIndex = 1;
+    customPaneNavigationAndResize = true;
+    keyMode = "vi";
+    disableConfirmationPrompt = true;
+    escapeTime = 0;
+
+    terminal = "tmux-256color";
+
+    extraConfig = ''
+      set-option -sa terminal-overrides ",xterm*:Tc"
+
+      set-option -g renumber-windows on
+      set -g status-position top
+      set -g status-justify absolute-centre
+      set -g status-style "bg=default"
+      set -g window-status-current-style "fg=black bg=white"
+      set -g status-interval 5
+      set -g status-left "#S"
+      set -g status-right ""
+
+      bind f display-popup -E "~/.dotfiles/scripts/tmux-session-dispensary.sh"
+
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+    '';
+  };
   # GTK
   gtk = {
     enable = true;
     theme = {
-      name = "Kanagawa-BL";
-      package = pkgs.kanagawa-gtk-theme;
+      name = "rose-pine-gtk";
+      package = pkgs.rose-pine-gtk-theme;
     };
     iconTheme = {
-      name = "Kanagawa";
-      package = pkgs.kanagawa-icon-theme;
+      name = "rose-pine-gtk";
+      package = pkgs.rose-pine-icon-theme;
     };
   };
 
@@ -56,13 +92,10 @@
     };
   };
 
-  imports = [
-    inputs.zen-browser.homeModules.beta
-  ];
-
+  programs.noctalia-shell.enable = true;
+  programs.swaylock.enable = true;
   programs.zen-browser.enable = true;
 
-  programs.waybar.enable = true;
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -72,13 +105,6 @@
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
-  };
-
-  programs.neovim = {
-    enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-    viAlias = true;
-    vimAlias = true;
   };
 
   home.packages = with pkgs; [
@@ -122,18 +148,14 @@
     libsecret
     wrk
     jq
-    #HYPR
-    hyprpaper
-    hyprshot
-    rose-pine-hyprcursor
-    ironbar
-    #VM
-    quickemu
-    quickgui
+    fd
+    skim
     #MISC
+    kanshi
     fastfetch
     bruno
-    zellij
+    dbeaver-bin
+    tmux
     wget
   ];
 
@@ -145,6 +167,7 @@
   };
 
   home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 
   programs.home-manager.enable = true;

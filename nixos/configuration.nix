@@ -28,11 +28,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -68,6 +63,10 @@
 
   # Configure hyprland
   programs.hyprland.enable = true;
+
+  # Configure niri
+  programs.niri.enable = true;
+
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
@@ -76,7 +75,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.hyprland}/bin/start-hyprland";
+        command = "${pkgs.niri}/bin/niri --session";
         user = "vince";
       };
       default_session = initial_session;
@@ -113,9 +112,8 @@
     variant = "";
   };
 
-  services.upower = {
-    enable = true;
-  };
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   console.keyMap = "sv-latin1";
 
@@ -136,12 +134,15 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = [
-    pkgs.alacritty
-    pkgs.google-chrome
-    pkgs.home-manager
-    pkgs.thunar
-    pkgs.mcontrolcenter
+  environment.systemPackages = with pkgs; [
+    alacritty
+    google-chrome
+    home-manager
+    thunar
+    mcontrolcenter
+    niri
+    xwayland-satellite
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   nix.settings.experimental-features = [
