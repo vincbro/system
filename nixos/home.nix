@@ -53,7 +53,7 @@
     disableConfirmationPrompt = true;
     escapeTime = 0;
 
-    terminal = "tmux-256color";
+    terminal = "screen-256color";
 
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
@@ -73,19 +73,19 @@
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
     '';
   };
+
   # GTK
   gtk = {
     enable = true;
     theme = {
-      name = "rose-pine-gtk";
-      package = pkgs.rose-pine-gtk-theme;
+      name = "Kanagawa-B-LB";
+      package = pkgs.kanagawa-gtk-theme;
     };
     iconTheme = {
-      name = "rose-pine-gtk";
-      package = pkgs.rose-pine-icon-theme;
+      name = "Kanagawa";
+      package = pkgs.kanagawa-icon-theme;
     };
   };
-
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
@@ -111,12 +111,10 @@
     #HELIX
     helix
     wl-clipboard
-    opencode
-    #ZED
-    zed-editor
+    tmux
     #NIX
     nil
-    nixfmt-rfc-style
+    nixfmt
     #MARKDOWN
     markdown-oxide
     #DEV
@@ -155,8 +153,8 @@
     fastfetch
     bruno
     dbeaver-bin
-    tmux
     wget
+    gpu-screen-recorder
   ];
 
   fonts = {
