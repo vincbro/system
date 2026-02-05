@@ -52,11 +52,16 @@
 
   # Bluetooth
   hardware.bluetooth.enable = true;
+  hardware.graphics.enable = true;
   services.blueman.enable = true;
 
   # Docker
   virtualisation.docker = {
     enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
   programs.nix-ld.enable = true;
@@ -75,7 +80,10 @@
       pkgs.xdg-desktop-portal-gnome
     ];
     config = {
-      common.default = [ "gnome" ];
+      common.default = [
+        "gtk"
+        "gnome"
+      ];
     };
   };
 
@@ -84,7 +92,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.niri}/bin/niri --session";
+        command = "${pkgs.niri}/bin/niri-session";
         user = "vince";
       };
       default_session = initial_session;
@@ -132,6 +140,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -152,6 +161,9 @@
     niri
     xwayland-satellite
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    libnotify
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
   ];
 
   nix.settings.experimental-features = [

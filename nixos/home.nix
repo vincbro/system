@@ -68,6 +68,8 @@
       set -g status-right ""
 
       bind f display-popup -E "~/.dotfiles/scripts/tmux-session-dispensary.sh"
+      bind o display-popup -E "~/.dotfiles/scripts/open-files.sh"
+      bind g run "~/.dotfiles/scripts/open-github.sh"
 
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
@@ -154,7 +156,6 @@
     bruno
     dbeaver-bin
     wget
-    gpu-screen-recorder
   ];
 
   fonts = {
