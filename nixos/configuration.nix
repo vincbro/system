@@ -58,10 +58,6 @@
   # Docker
   virtualisation.docker = {
     enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
   };
 
   programs.nix-ld.enable = true;
@@ -159,11 +155,16 @@
     thunar
     mcontrolcenter
     niri
+    quickshell
+    imagemagick
+    cliphist
     xwayland-satellite
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    brightnessctl
     libnotify
     gpu-screen-recorder
     gpu-screen-recorder-gtk
+    polkit_gnome
   ];
 
   nix.settings.experimental-features = [

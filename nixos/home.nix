@@ -35,6 +35,28 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+
+    enableDefaultConfig = false;
+    matchBlocks = {
+      "*" = {
+        addKeysToAgent = "yes";
+      };
+
+      "github.com" = {
+        hostname = "github.com";
+        identityFile = "~/.ssh/id_ed25519_personal";
+      };
+
+      "github-work" = {
+        hostname = "github.com";
+        identityFile = "~/.ssh/id_ed25519_work";
+        identitiesOnly = true;
+      };
+    };
+  };
+
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -57,6 +79,7 @@
 
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
+      set -s copy-command 'wl-copy'
 
       set-option -g renumber-windows on
       set -g status-position top
@@ -70,6 +93,10 @@
       bind f display-popup -E "~/.dotfiles/scripts/tmux-session-dispensary.sh"
       bind o display-popup -E "~/.dotfiles/scripts/open-files.sh"
       bind g run "~/.dotfiles/scripts/open-github.sh"
+
+      bind c new-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind '"' split-window -v -c "#{pane_current_path}"
 
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
@@ -114,6 +141,8 @@
     helix
     wl-clipboard
     tmux
+    zed-editor
+    opencode
     #NIX
     nil
     nixfmt
@@ -156,6 +185,7 @@
     bruno
     dbeaver-bin
     wget
+    gemini-cli
   ];
 
   fonts = {
