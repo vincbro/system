@@ -179,7 +179,9 @@
     jq
     fd
     skim
+    lazygit
     #MISC
+    gum
     kanshi
     fastfetch
     bruno
