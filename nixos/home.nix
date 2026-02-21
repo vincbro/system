@@ -9,11 +9,6 @@
   home.username = "vince";
   home.homeDirectory = "/home/vince";
 
-  imports = [
-    inputs.noctalia.homeModules.default
-    inputs.zen-browser.homeModules.beta
-  ];
-
   home.pointerCursor = {
     package = pkgs.rose-pine-cursor;
     name = "BreezeX-RosePine-Linux";
@@ -115,20 +110,17 @@
       package = pkgs.kanagawa-icon-theme;
     };
   };
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
   };
 
-  programs.noctalia-shell.enable = true;
-  programs.swaylock.enable = true;
-  programs.zen-browser.enable = true;
-
   qt = {
     enable = true;
-    platformTheme.name = "qt5ct";
-    style.name = "adwaita";
+    platformTheme.name = "gtk";
+    style.name = "Kanagawa-B-LB";
   };
 
   programs.zoxide = {
@@ -195,8 +187,8 @@
     wget
     gemini-cli
     moonlight-qt
-    qt6.qtwayland
-    libsForQt5.qt5.qtwayland
+    # ENV
+    ironbar
    ];
 
   fonts = {
@@ -207,7 +199,6 @@
   };
 
   home.sessionVariables = {
-    NIXPKGS_QT6_QML_IMPORT_PATH = "${pkgs.qt6.qtdeclarative}/lib/qt-6/qml";
   };
 
   programs.home-manager.enable = true;

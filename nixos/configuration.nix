@@ -173,7 +173,6 @@
     imagemagick
     cliphist
     xwayland-satellite
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     brightnessctl
     libnotify
     gpu-screen-recorder
