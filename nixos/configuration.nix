@@ -77,9 +77,6 @@
 
   programs.nix-ld.enable = true;
 
-  # Configure hyprland
-  programs.hyprland.enable = true;
-
   # Configure niri
   programs.niri.enable = true;
 
@@ -166,10 +163,8 @@
   environment.systemPackages = with pkgs; [
     alacritty
     google-chrome
-    home-manager
-    thunar
+    # thunar
     mcontrolcenter
-    niri
     imagemagick
     cliphist
     xwayland-satellite

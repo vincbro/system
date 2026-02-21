@@ -19,11 +19,10 @@
 
   programs.git = {
     enable = true;
-    settings = {
-      user = {
-        name = "Vincent Brodin";
-        email = "vincent.brodin21@gmail.com";
-      };
+    userName = "Vincent Brodin";
+    userEmail = "vincent.brodin21@gmail.com";
+
+    extraConfig = {
       credential = {
         helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
       };
@@ -38,7 +37,6 @@
       "*" = {
         addKeysToAgent = "yes";
       };
-
       "github.com" = {
         hostname = "github.com";
         identityFile = "~/.ssh/id_ed25519_personal";
@@ -139,32 +137,22 @@
     helix
     wl-clipboard
     tmux
-    zed-editor
-    opencode
+    # opencode
     #NIX
     nil
     nixfmt
     #MARKDOWN
     markdown-oxide
     #DEV
-    pkg-config
-    openssl
-    gcc
     gh
     felix-fm
     #FONTS
-    nerd-fonts.fira-mono
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
     nerd-fonts.monaspace
     #ROFI
     rofi
     rofi-network-manager
-    rofi-bluetooth
     #GNOME
-    gnome-bluetooth
     gnome-calculator
-    gnome-tweaks
     #TOOLS
     killall
     zip
@@ -189,7 +177,7 @@
     moonlight-qt
     # ENV
     ironbar
-   ];
+  ];
 
   fonts = {
     fontconfig.enable = true;
