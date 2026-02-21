@@ -127,8 +127,8 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk"; # or "kde"
-    style.name = "breeze";
+    platformTheme.name = "qt5ct";
+    style.name = "adwaita";
   };
 
   programs.zoxide = {
@@ -195,7 +195,9 @@
     wget
     gemini-cli
     moonlight-qt
-  ];
+    qt6.qtwayland
+    libsForQt5.qt5.qtwayland
+   ];
 
   fonts = {
     fontconfig.enable = true;
@@ -205,7 +207,6 @@
   };
 
   home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
     NIXPKGS_QT6_QML_IMPORT_PATH = "${pkgs.qt6.qtdeclarative}/lib/qt-6/qml";
   };
 
