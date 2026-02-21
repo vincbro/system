@@ -125,6 +125,12 @@
   programs.swaylock.enable = true;
   programs.zen-browser.enable = true;
 
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk"; # or "kde"
+    style.name = "breeze";
+  };
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -188,6 +194,7 @@
     dbeaver-bin
     wget
     gemini-cli
+    moonlight-qt
   ];
 
   fonts = {
@@ -199,6 +206,7 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    NIXPKGS_QT6_QML_IMPORT_PATH = "${pkgs.qt6.qtdeclarative}/lib/qt-6/qml";
   };
 
   programs.home-manager.enable = true;

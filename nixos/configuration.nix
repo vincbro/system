@@ -23,6 +23,21 @@
     };
   };
 
+  # Store settings
+  nix.settings.auto-optimise-store = true;
+
+  # Zram Swap
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
+
+  services.fwupd.enable = true;
+
+  # Tailscale
+  services.tailscale.enable = true;
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -155,7 +170,6 @@
     thunar
     mcontrolcenter
     niri
-    quickshell
     imagemagick
     cliphist
     xwayland-satellite
