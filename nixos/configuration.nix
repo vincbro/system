@@ -162,8 +162,8 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
+    kitty
     google-chrome
-    # thunar
     mcontrolcenter
     imagemagick
     cliphist

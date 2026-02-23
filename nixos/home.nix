@@ -17,6 +17,12 @@
     x11.enable = true;
   };
 
+
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
+  programs.noctalia-shell.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Vincent Brodin";
@@ -117,8 +123,7 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
-    style.name = "Kanagawa-B-LB";
+    platformTheme.name = "qt5ct";
   };
 
   programs.zoxide = {
@@ -137,7 +142,7 @@
     helix
     wl-clipboard
     tmux
-    # opencode
+    opencode
     #NIX
     nil
     nixfmt
@@ -166,14 +171,12 @@
     fd
     skim
     lazygit
-    #MISC
     gum
     kanshi
     fastfetch
     bruno
     dbeaver-bin
     wget
-    gemini-cli
     moonlight-qt
     # ENV
     ironbar
