@@ -37,7 +37,7 @@
 
   # Tailscale
   services.tailscale.enable = true;
-  
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -46,6 +46,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.checkReversePath = false;
+  services.resolved.enable = true;
+  services.mullvad-vpn.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
@@ -155,6 +158,7 @@
       discord
       spotify
       zoom-us
+      graphite-cli
     ];
   };
 

@@ -17,11 +17,13 @@
     x11.enable = true;
   };
 
-
   imports = [
     inputs.noctalia.homeModules.default
   ];
-  programs.noctalia-shell.enable = true;
+  programs.noctalia-shell = {
+    enable = true;
+    systemd.enable = true;
+  };
 
   programs.git = {
     enable = true;
@@ -123,7 +125,7 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "qt5ct";
+    platformTheme.name = "qt6ct";
   };
 
   programs.zoxide = {
@@ -159,6 +161,7 @@
     #GNOME
     gnome-calculator
     #TOOLS
+    # prmt
     killall
     zip
     unzip
@@ -178,8 +181,12 @@
     dbeaver-bin
     wget
     moonlight-qt
+    mullvad-vpn
     # ENV
-    ironbar
+    libsForQt5.qt5ct
+    libsForQt5.qt5.qtwayland
+    kdePackages.qt6ct
+    kdePackages.qtwayland
   ];
 
   fonts = {
