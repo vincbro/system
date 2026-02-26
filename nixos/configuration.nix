@@ -159,6 +159,7 @@
       spotify
       zoom-us
       graphite-cli
+      vscode
     ];
   };
 
