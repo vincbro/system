@@ -140,11 +140,15 @@
   };
 
   home.packages = with pkgs; [
-    #HELIX
+    #DEV
     helix
-    wl-clipboard
     tmux
     opencode
+    dbeaver-bin
+    bruno
+    #NETWORK
+    moonlight-qt
+    mullvad-vpn
     #NIX
     nil
     nixfmt
@@ -162,26 +166,25 @@
     gnome-calculator
     #TOOLS
     # prmt
+    wl-clipboard
     killall
     zip
     unzip
     pavucontrol
     rclone
-    btop
     libsecret
-    wrk
+    oha
+    atac
     jq
     fd
     skim
-    lazygit
     gum
     kanshi
     fastfetch
-    bruno
-    dbeaver-bin
     wget
-    moonlight-qt
-    mullvad-vpn
+    ripgrep
+    bottom
+    fzf
     # ENV
     libsForQt5.qt5ct
     libsForQt5.qt5.qtwayland
