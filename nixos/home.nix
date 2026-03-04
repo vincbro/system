@@ -76,8 +76,7 @@
     disableConfirmationPrompt = true;
     escapeTime = 0;
 
-    terminal = "screen-256color";
-
+    terminal = "tmux-256color";
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
       set -s copy-command 'wl-copy'
@@ -159,6 +158,7 @@
     felix-fm
     #FONTS
     nerd-fonts.monaspace
+    nerd-fonts.jetbrains-mono
     #ROFI
     rofi
     rofi-network-manager
@@ -174,7 +174,7 @@
     rclone
     libsecret
     oha
-    atac
+    hurl
     jq
     fd
     skim
@@ -184,6 +184,7 @@
     wget
     ripgrep
     bottom
+    btop
     fzf
     # ENV
     libsForQt5.qt5ct

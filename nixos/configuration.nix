@@ -168,6 +168,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     kitty
+    rio
     google-chrome
     mcontrolcenter
     imagemagick
