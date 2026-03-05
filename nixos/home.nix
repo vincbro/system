@@ -27,10 +27,19 @@
 
   programs.git = {
     enable = true;
-    userName = "Vincent Brodin";
-    userEmail = "vincent.brodin21@gmail.com";
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Vincent Brodin";
+        email = "vincent.brodin21@gmail.com";
+      };
+
+      aliases = {
+        ci = "commit";
+        co = "checkout";
+        st = "status";
+      };
+
       credential = {
         helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
       };
@@ -151,6 +160,7 @@
     #NIX
     nil
     nixfmt
+    manix
     #MARKDOWN
     markdown-oxide
     #DEV
