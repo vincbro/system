@@ -166,6 +166,8 @@
     #DEV
     gh
     felix-fm
+    vial
+    dfu-programmer
     #FONTS
     nerd-fonts.monaspace
     nerd-fonts.jetbrains-mono

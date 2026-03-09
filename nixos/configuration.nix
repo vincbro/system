@@ -44,6 +44,17 @@
 
   networking.hostName = "nixos"; # Define your hostname.
 
+  # Keyboard
+  services.udev = {
+    packages = with pkgs; [
+      qmk
+      qmk-udev-rules
+      qmk_hid
+      via
+      vial
+    ];
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall.checkReversePath = false;
