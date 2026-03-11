@@ -171,6 +171,7 @@
     #FONTS
     nerd-fonts.monaspace
     nerd-fonts.jetbrains-mono
+    iosevka
     #ROFI
     rofi
     rofi-network-manager
